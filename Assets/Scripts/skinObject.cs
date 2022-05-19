@@ -90,6 +90,8 @@ public class skinObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public void SetSkinData(SkinData data)
     {
         this.m_skinData = data;
+
+        
     }
 
     public void SetTextAndImage(string _name, Texture2D _image)

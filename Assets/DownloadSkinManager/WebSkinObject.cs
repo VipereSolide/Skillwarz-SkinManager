@@ -15,6 +15,13 @@ public class WebSkinObject : MonoBehaviour, IPointerClickHandler
     public void SetData(Texture2D tex, string link)
     {
         texture.texture = tex;
+
+        float _crossProduct = (float)tex.width * (300.0f / (float)tex.height);
+        texture.transform.GetComponent<RectTransform>().sizeDelta = new Vector2(
+            _crossProduct,
+            300
+        );
+
         this.link = link;
     }
 
