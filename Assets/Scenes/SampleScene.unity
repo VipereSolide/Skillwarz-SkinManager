@@ -11424,310 +11424,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 163493410}
   m_CullTransparentMesh: 1
---- !u!1 &166601943
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 166601944}
-  - component: {fileID: 166601946}
-  - component: {fileID: 166601945}
-  m_Layer: 5
-  m_Name: Text (TMP)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &166601944
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 166601943}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 990958879}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -475.68146}
-  m_SizeDelta: {x: 0, y: 951.3629}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &166601945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 166601943}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_text: "<#9B8CFA>namespace</color> Skillwarz<#676E95>.</color>SkinManager\r\n<#1D9FFF>{</color>\r\n\t<#CF68E1>using</color>
-    <#DA5749>System</color><#676E95>;</color>\r\n\t<#CF68E1>using</color> <#DA5749>UnityEngine</color><#676E95>;</color>\r\n\r\n\t<#9B8CFA>public</color>
-    <#9B8CFA>enum</color> EmissionType\r\n\t<#1D9FFF>{</color>\r\n\t\tNone,\r\n\t\tIntensityChange,\r\n\t\tColorChange\r\n\t}\r\n\r\n\t<#9B8CFA>public</color>
-    <#9B8CFA>enum</color> WeaponType\r\n\t<#1D9FFF>{</color>\r\n\t\tAK12,\r\n\t\tAK47,\r\n\t\tAUG,\r\n\t\tDAO,\r\n\t\tDeagle,\r\n\t\tG22,\r\n\t\tK10,\r\n\t\tKSG,\r\n\t\tL96A1,\r\n\t\tM4A1,\r\n\t\tM107,\r\n\t\tM110,\r\n\t\tMG4,\r\n\t\tMLG140,\r\n\t\tP99,\r\n\t\tUSP45,\r\n\t\tUZI\r\n\t}\r\n\r\n\t<#FFD700>[</color><#56B7C3>Serializable</color><#FFD700>]</color>\r\n\t<#9B8CFA>public</color>
-    <#9B8CFA>class</color> SkinData\r\n\t<#1D9FFF>{</color>\r\n\t\t<#9B8CFA>#region</color>
-    Declarations\r\n\r\n\t\t<#FFD700>[</color><#56B7C3>Header</color><#1D9FFF>(</color>\"Skin
-    Data\"<#1D9FFF><#1D9FFF>)</color></color><#FFD700>]</color>\r\n\r\n\t\t<#FFD700>[</color><#56B7C3>SerializeField</color><#FFD700>]</color>\r\n\t\t<#9B8CFA>private</color>
-    <#FF6AA7>string</color> skinName <#676E95>=</color> \"\"<#676E95>;</color>\r\n\r\n\t\t<#FFD700>[</color><#56B7C3>SerializeField</color><#FFD700>]</color>\r\n\t\t<#9B8CFA>private</color>
-    <#FF6AA7>string</color> skinDescription <#676E95>=</color> \"\"<#676E95>;</color>\r\n\r\n\t\t<#FFD700>[</color><#56B7C3>SerializeField</color><#FFD700>]</color>\r\n\t\t<#9B8CFA>private</color>
-    Texture2D skinProfilePicture <#676E95>=</color> null<#676E95>;</color>\r\n\r\n\t\t<#FFD700>[</color><#56B7C3>SerializeField</color><#FFD700>]</color>\r\n\t\t<#9B8CFA>private</color>
-    <#FF6AA7>bool</color> isEnabled <#676E95>=</color> false<#676E95>;</color>\r\n\r\n\t\t<#FFD700>[</color><#56B7C3>SerializeField</color><#FFD700>]</color>\r\n\t\t<#9B8CFA>private</color>
-    WeaponType weapon<#676E95>;</color>\r\n\r\n\t\t<#FFD700>[</color><#56B7C3>SerializeField</color><#FFD700>]</color>\r\n\t\t<#9B8CFA>private</color>
-    Texture2D<#FFD700>[</color><#FFD700>]</color> skinTextures <#676E95>=</color>
-    new Texture2D<#FFD700>[</color>7<#FFD700>]</color> <#1D9FFF>{</color>null, null,
-    null, null, null, null, null}<#676E95>;</color>\r\n\r\n\t\t<#FFD700>[</color><#56B7C3>SerializeField</color><#FFD700>]</color>\r\n\t\t<#9B8CFA>private</color>
-    <#FF6AA7>string</color><#FFD700>[</color><#FFD700>]</color> skinTexturePaths
-    <#676E95>=</color> new <#FF6AA7>string</color><#FFD700>[</color>7<#FFD700>]</color>
-    <#1D9FFF>{</color><#FF6AA7>string</color><#676E95>.</color>Empty, <#FF6AA7>string</color><#676E95>.</color>Empty,
-    <#FF6AA7>string</color><#676E95>.</color>Empty, <#FF6AA7>string</color><#676E95>.</color>Empty,
-    <#FF6AA7>string</color><#676E95>.</color>Empty, <#FF6AA7>string</color><#676E95>.</color>Empty,
-    <#FF6AA7>string</color><#676E95>.</color>Empty}<#676E95>;</color>\r\n\r\n\t\t<#FFD700>[</color>Space<#1D9FFF>(</color><#1D9FFF><#1D9FFF>)</color></color><#FFD700>]</color>\r\n\r\n\t\t<#FFD700>[</color><#56B7C3>SerializeField</color><#FFD700>]</color>\r\n\t\t<#9B8CFA>private</color>
-    SkinDataProperties properties <#676E95>=</color> new SkinDataProperties<#1D9FFF>(</color>Color<#676E95>.</color>white,
-    Color<#676E95>.</color>black, 0<#676E95>.</color>0f, EmissionType<#676E95>.</color>None,
-    2<#676E95>.</color>0f, 0<#676E95>.</color>5f, 0<#676E95>.</color>05f, 1<#676E95>.</color>0f<#1D9FFF><#1D9FFF>)</color></color><#676E95>;</color>\r\n\r\n\t\t<#9B8CFA>public</color>
-    <#FF6AA7>string</color> SkinName <#1D9FFF>{</color> get <#1D9FFF>{</color> return
-    <#9B8CFA>this</color><#676E95>.</color>skinName<#676E95>;</color> } }\r\n\t\t<#9B8CFA>public</color>
-    <#FF6AA7>string</color> SkinDescription <#1D9FFF>{</color> get <#1D9FFF>{</color>
-    return <#9B8CFA>this</color><#676E95>.</color>skinDescription<#676E95>;</color>
-    } }\r\n\t\t<#9B8CFA>public</color> Texture2D SkinProfilePicture <#1D9FFF>{</color>
-    get <#1D9FFF>{</color> return <#9B8CFA>this</color><#676E95>.</color>skinProfilePicture<#676E95>;</color>
-    } }\r\n\t\t<#9B8CFA>public</color> <#FF6AA7>bool</color> IsEnabled <#1D9FFF>{</color>
-    get <#1D9FFF>{</color> return <#9B8CFA>this</color><#676E95>.</color>isEnabled<#676E95>;</color>
-    } }\r\n\t\t<#9B8CFA>public</color> WeaponType Weapon <#1D9FFF>{</color> get <#1D9FFF>{</color>
-    return <#9B8CFA>this</color><#676E95>.</color>weapon<#676E95>;</color> } }\r\n\t\t<#9B8CFA>public</color>
-    Texture2D<#FFD700>[</color><#FFD700>]</color> SkinTextures <#1D9FFF>{</color>
-    get <#1D9FFF>{</color> return <#9B8CFA>this</color><#676E95>.</color>skinTextures<#676E95>;</color>
-    } }\r\n\t\t<#9B8CFA>public</color> <#FF6AA7>string</color><#FFD700>[</color><#FFD700>]</color>
-    SkinTexturePaths <#1D9FFF>{</color> get <#1D9FFF>{</color> return <#9B8CFA>this</color><#676E95>.</color>skinTexturePaths<#676E95>;</color>
-    } }\r\n\t\t<#9B8CFA>public</color> SkinDataProperties Properties <#1D9FFF>{</color>
-    get <#1D9FFF>{</color> return <#9B8CFA>this</color><#676E95>.</color>properties<#676E95>;</color>
-    } }\r\n\r\n\t\t#endregion\r\n\r\n\t\t<#9B8CFA>public</color> SkinData<#1D9FFF>(</color><#FF6AA7>string</color>
-    _skinName, <#FF6AA7>string</color> _skinDescription, Texture2D _skinProfilePicture,
-    <#FF6AA7>bool</color> _isEnabled, Texture2D<#FFD700>[</color><#FFD700>]</color>
-    _skinTextures, SkinDataProperties _properties, WeaponType _weapon<#1D9FFF><#1D9FFF>)</color></color>\r\n\t\t<#1D9FFF>{</color>\r\n\t\t\t<#9B8CFA>this</color><#676E95>.</color>skinName
-    <#676E95>=</color> _skinName<#676E95>;</color>\r\n\t\t\t<#9B8CFA>this</color><#676E95>.</color>skinDescription
-    <#676E95>=</color> _skinDescription<#676E95>;</color>\r\n\t\t\t<#9B8CFA>this</color><#676E95>.</color>skinProfilePicture
-    <#676E95>=</color> _skinProfilePicture<#676E95>;</color>\r\n\t\t\t<#9B8CFA>this</color><#676E95>.</color>isEnabled
-    <#676E95>=</color> _isEnabled<#676E95>;</color>\r\n\t\t\t<#9B8CFA>this</color><#676E95>.</color>skinTextures
-    <#676E95>=</color> _skinTextures<#676E95>;</color>\r\n\t\t\t<#9B8CFA>this</color><#676E95>.</color>properties
-    <#676E95>=</color> _properties<#676E95>;</color>\r\n\t\t\t<#9B8CFA>this</color><#676E95>.</color>weapon
-    <#676E95>=</color> _weapon<#676E95>;</color>\r\n\t\t}\r\n\r\n\t\t<#9B8CFA>public</color>
-    <#FF6AA7>void</color> SetData<#1D9FFF>(</color><#FF6AA7>string</color> _skinName,
-    <#FF6AA7>string</color> _skinDescription, Texture2D _skinProfilePicture, <#FF6AA7>bool</color>
-    _isEnabled, Texture2D<#FFD700>[</color><#FFD700>]</color> _skinTextures, SkinDataProperties
-    _properties, WeaponType _weapon<#1D9FFF><#1D9FFF>)</color></color>\r\n\t\t<#1D9FFF>{</color>\r\n\t\t\t<#9B8CFA>this</color><#676E95>.</color>skinName
-    <#676E95>=</color> _skinName<#676E95>;</color>\r\n\t\t\t<#9B8CFA>this</color><#676E95>.</color>skinDescription
-    <#676E95>=</color> _skinDescription<#676E95>;</color>\r\n\t\t\t<#9B8CFA>this</color><#676E95>.</color>skinProfilePicture
-    <#676E95>=</color> _skinProfilePicture<#676E95>;</color>\r\n\t\t\t<#9B8CFA>this</color><#676E95>.</color>isEnabled
-    <#676E95>=</color> _isEnabled<#676E95>;</color>\r\n\t\t\t<#9B8CFA>this</color><#676E95>.</color>skinTextures
-    <#676E95>=</color> _skinTextures<#676E95>;</color>\r\n\t\t\t<#9B8CFA>this</color><#676E95>.</color>properties
-    <#676E95>=</color> _properties<#676E95>;</color>\r\n\t\t\t<#9B8CFA>this</color><#676E95>.</color>weapon
-    <#676E95>=</color> _weapon<#676E95>;</color>\r\n\t\t}\r\n\r\n\t\t<#9B8CFA>public</color>
-    <#FF6AA7>void</color> SetDescription<#1D9FFF>(</color><#FF6AA7>string</color>
-    _skinDescription<#1D9FFF><#1D9FFF>)</color></color>\r\n\t\t<#1D9FFF>{</color>\r\n\t\t\t<#9B8CFA>this</color><#676E95>.</color>skinDescription
-    <#676E95>=</color> _skinDescription<#676E95>;</color>\r\n\t\t}\r\n\r\n\t\t<#9B8CFA>public</color>
-    SkinData<#1D9FFF>(</color><#1D9FFF><#1D9FFF>)</color></color>\r\n\t\t<#1D9FFF>{</color>\r\n\t\t\t\r\n\t\t}\r\n\r\n\t\t<#9B8CFA>public</color>
-    <#FF6AA7>void</color> SetTexturePaths<#1D9FFF>(</color><#FF6AA7>string</color><#FFD700>[</color><#FFD700>]</color>
-    _texturePaths<#1D9FFF><#1D9FFF>)</color></color>\r\n\t\t<#1D9FFF>{</color>\r\n\t\t\t<#9B8CFA>this</color><#676E95>.</color>skinTexturePaths
-    <#676E95>=</color> _texturePaths<#676E95>;</color>\r\n\t\t}\r\n\r\n\t\t<#9B8CFA>public</color>
-    static <#FF6AA7>int</color> WeaponTypeToInt<#1D9FFF>(</color>WeaponType value<#1D9FFF><#1D9FFF>)</color></color>\r\n\t\t<#1D9FFF>{</color>\r\n\t\t\tswitch<#1D9FFF>(</color>value<#1D9FFF><#1D9FFF>)</color></color>\r\n\t\t\t<#1D9FFF>{</color>\r\n\t\t\t\tcase
-    WeaponType<#676E95>.</color>AK12:\r\n\t\t\t\t\treturn 0<#676E95>;</color>\r\n\t\t\t\tcase
-    WeaponType<#676E95>.</color>AK47:\r\n\t\t\t\t\treturn 1<#676E95>;</color>\r\n\t\t\t\tcase
-    WeaponType<#676E95>.</color>AUG:\r\n\t\t\t\t\treturn 2<#676E95>;</color>\r\n\t\t\t\tcase
-    WeaponType<#676E95>.</color>DAO:\r\n\t\t\t\t\treturn 3<#676E95>;</color>\r\n\t\t\t\tcase
-    WeaponType<#676E95>.</color>Deagle:\r\n\t\t\t\t\treturn 4<#676E95>;</color>\r\n\t\t\t\tcase
-    WeaponType<#676E95>.</color>G22:\r\n\t\t\t\t\treturn 5<#676E95>;</color>\r\n\t\t\t\tcase
-    WeaponType<#676E95>.</color>K10:\r\n\t\t\t\t\treturn 6<#676E95>;</color>\r\n\t\t\t\tcase
-    WeaponType<#676E95>.</color>KSG:\r\n\t\t\t\t\treturn 7<#676E95>;</color>\r\n\t\t\t\tcase
-    WeaponType<#676E95>.</color>L96A1:\r\n\t\t\t\t\treturn 8<#676E95>;</color>\r\n\t\t\t\tcase
-    WeaponType<#676E95>.</color>M107:\r\n\t\t\t\t\treturn 9<#676E95>;</color>\r\n\t\t\t\tcase
-    WeaponType<#676E95>.</color>M110:\r\n\t\t\t\t\treturn 10<#676E95>;</color>\r\n\t\t\t\tcase
-    WeaponType<#676E95>.</color>M4A1:\r\n\t\t\t\t\treturn 11<#676E95>;</color>\r\n\t\t\t\tcase
-    WeaponType<#676E95>.</color>MG4:\r\n\t\t\t\t\treturn 12<#676E95>;</color>\r\n\t\t\t\tcase
-    WeaponType<#676E95>.</color>MLG140:\r\n\t\t\t\t\treturn 13<#676E95>;</color>\r\n\t\t\t\tcase
-    WeaponType<#676E95>.</color>P99:\r\n\t\t\t\t\treturn 14<#676E95>;</color>\r\n\t\t\t\tcase
-    WeaponType<#676E95>.</color>USP45:\r\n\t\t\t\t\treturn 15<#676E95>;</color>\r\n\t\t\t\tcase
-    WeaponType<#676E95>.</color>UZI:\r\n\t\t\t\t\treturn 16<#676E95>;</color>\r\n\t\t\t\tdefault:\r\n\t\t\t\t\treturn
-    0<#676E95>;</color>\r\n\t\t\t}\r\n\t\t}\r\n\r\n\t\t<#9B8CFA>public</color> static
-    <#FF6AA7>string</color> IntToTextureName<#1D9FFF>(</color><#FF6AA7>int</color>
-    _<#FF6AA7>int</color><#1D9FFF><#1D9FFF>)</color></color>\r\n\t\t<#1D9FFF>{</color>\r\n\t\t\t<#FF6AA7>string</color>
-    _textureName <#676E95>=</color> \"\"<#676E95>;</color>\r\n\r\n\t\t\tswitch<#1D9FFF>(</color>_<#FF6AA7>int</color><#1D9FFF><#1D9FFF>)</color></color>\r\n           
-    <#1D9FFF>{</color>\r\n                case 0:\r\n                    _textureName
-    <#676E95>=</color> \"albedo\"<#676E95>;</color>\r\n                    break<#676E95>;</color>\r\n               
-    case 1:\r\n                    _textureName <#676E95>=</color> \"detail\"<#676E95>;</color>\r\n                   
-    break<#676E95>;</color>\r\n                case 2:\r\n                    _textureName
-    <#676E95>=</color> \"emission\"<#676E95>;</color>\r\n                    break<#676E95>;</color>\r\n               
-    case 3:\r\n                    _textureName <#676E95>=</color> \"metallic\"<#676E95>;</color>\r\n                   
-    break<#676E95>;</color>\r\n                case 4:\r\n                    _textureName
-    <#676E95>=</color> \"normal\"<#676E95>;</color>\r\n                    break<#676E95>;</color>\r\n               
-    case 5:\r\n                    _textureName <#676E95>=</color> \"height\"<#676E95>;</color>\r\n                   
-    break<#676E95>;</color>\r\n                case 6:\r\n                    _textureName
-    <#676E95>=</color> \"occlusion\"<#676E95>;</color>\r\n                    break<#676E95>;</color>\r\n               
-    default:\r\n                    _textureName <#676E95>=</color> \"albedo\"<#676E95>;</color>\r\n                   
-    break<#676E95>;</color>\r\n            }\r\n\r\n\t\t\treturn _textureName<#676E95>;</color>\r\n\t\t}\r\n\r\n\t\t<#9B8CFA>public</color>
-    static <#FF6AA7>int</color> TextureNameToInt<#1D9FFF>(</color><#FF6AA7>string</color>
-    _textureName<#1D9FFF><#1D9FFF>)</color></color>\r\n\t\t<#1D9FFF>{</color>\r\n\t\t\t<#FF6AA7>int</color>
-    _<#FF6AA7>int</color> <#676E95>=</color> 0<#676E95>;</color>\r\n\r\n\t\t\tswitch<#1D9FFF>(</color>_textureName<#1D9FFF><#1D9FFF>)</color></color>\r\n           
-    <#1D9FFF>{</color>\r\n                case \"albedo\":\r\n                   
-    _<#FF6AA7>int</color> <#676E95>=</color> 0<#676E95>;</color>\r\n                   
-    break<#676E95>;</color>\r\n\t\t\t\tcase \"detail\":\r\n                    _<#FF6AA7>int</color>
-    <#676E95>=</color> 1<#676E95>;</color>\r\n                    break<#676E95>;</color>\r\n\t\t\t\tcase
-    \"emission\":\r\n                    _<#FF6AA7>int</color> <#676E95>=</color>
-    2<#676E95>;</color>\r\n                    break<#676E95>;</color>\r\n\t\t\t\tcase
-    \"metallic\":\r\n                    _<#FF6AA7>int</color> <#676E95>=</color>
-    3<#676E95>;</color>\r\n                    break<#676E95>;</color>\r\n\t\t\t\tcase
-    \"normal\":\r\n                    _<#FF6AA7>int</color> <#676E95>=</color> 4<#676E95>;</color>\r\n                   
-    break<#676E95>;</color>\r\n\t\t\t\tcase \"height\":\r\n                    _<#FF6AA7>int</color>
-    <#676E95>=</color> 5<#676E95>;</color>\r\n                    break<#676E95>;</color>\r\n\t\t\t\tcase
-    \"occlusion\":\r\n                    _<#FF6AA7>int</color> <#676E95>=</color>
-    6<#676E95>;</color>\r\n                    break<#676E95>;</color>\r\n\t\t\t\tdefault:\r\n                   
-    _<#FF6AA7>int</color> <#676E95>=</color> 0<#676E95>;</color>\r\n                   
-    break<#676E95>;</color>\r\n            }\r\n\r\n\t\t\treturn _<#FF6AA7>int</color><#676E95>;</color>\r\n\t\t}\r\n\r\n\t}\r\n\r\n\t<#FFD700>[</color><#56B7C3>Serializable</color><#FFD700>]</color>\r\n\t<#9B8CFA>public</color>
-    <#9B8CFA>class</color> SkinDataProperties\r\n\t<#1D9FFF>{</color>\r\n\t\t<#FFD700>[</color><#56B7C3>Header</color><#1D9FFF>(</color>\"Skin
-    Properties Data\"<#1D9FFF><#1D9FFF>)</color></color><#FFD700>]</color>\r\n\r\n\t\t<#FFD700>[</color><#56B7C3>SerializeField</color><#FFD700>]</color>\r\n\t\t<#9B8CFA>private</color>
-    Color albedoColor <#676E95>=</color> Color<#676E95>.</color>white<#676E95>;</color>\r\n\r\n\t\t<#FFD700>[</color><#56B7C3>SerializeField</color><#FFD700>]</color>\r\n\t\t<#9B8CFA>private</color>
-    Color emissionColor <#676E95>=</color> Color<#676E95>.</color>black<#676E95>;</color>\r\n\r\n\t\t<#FFD700>[</color><#56B7C3>SerializeField</color><#FFD700>]</color>
-    <#FFD700>[</color>Range<#1D9FFF>(</color><#676E95>-</color>10<#676E95>.</color>0f,10<#676E95>.</color>0f<#1D9FFF><#1D9FFF>)</color></color><#FFD700>]</color>\r\n\t\t<#9B8CFA>private</color>
-    float emissionIntensity <#676E95>=</color> 0<#676E95>.</color>0f<#676E95>;</color>\r\n\r\n\t\t<#FFD700>[</color><#56B7C3>SerializeField</color><#FFD700>]</color>\r\n\t\t<#9B8CFA>private</color>
-    EmissionType emissionType <#676E95>=</color> EmissionType<#676E95>.</color>None<#676E95>;</color>\r\n\r\n\t\t<#FFD700>[</color><#56B7C3>SerializeField</color><#FFD700>]</color>\r\n\t\t<#9B8CFA>private</color>
-    float metallicAmount <#676E95>=</color> 2<#676E95>.</color>0f<#676E95>;</color>\r\n\r\n\t\t<#FFD700>[</color><#56B7C3>SerializeField</color><#FFD700>]</color>\r\n\t\t<#9B8CFA>private</color>
-    float normalAmount <#676E95>=</color> 0<#676E95>.</color>5f<#676E95>;</color>\r\n\r\n\t\t<#FFD700>[</color><#56B7C3>SerializeField</color><#FFD700>]</color>\r\n\t\t<#9B8CFA>private</color>
-    float heightAmount <#676E95>=</color> 0<#676E95>.</color>05f<#676E95>;</color>\r\n\r\n\t\t<#FFD700>[</color><#56B7C3>SerializeField</color><#FFD700>]</color>\r\n\t\t<#9B8CFA>private</color>
-    float occlusionAmount <#676E95>=</color> 1<#676E95>.</color>0f<#676E95>;</color>\r\n\r\n\t\t<#9B8CFA>public</color>
-    Color AlbedoColor <#1D9FFF>{</color> get <#1D9FFF>{</color> return <#9B8CFA>this</color><#676E95>.</color>albedoColor<#676E95>;</color>
-    } }\r\n\t\t<#9B8CFA>public</color> Color EmissionColor <#1D9FFF>{</color> get
-    <#1D9FFF>{</color> return <#9B8CFA>this</color><#676E95>.</color>emissionColor<#676E95>;</color>
-    } }\r\n\t\t<#9B8CFA>public</color> float EmissionIntensity <#1D9FFF>{</color>
-    get <#1D9FFF>{</color> return <#9B8CFA>this</color><#676E95>.</color>emissionIntensity<#676E95>;</color>
-    } }\r\n\t\t<#9B8CFA>public</color> EmissionType EmissionType <#1D9FFF>{</color>
-    get <#1D9FFF>{</color> return <#9B8CFA>this</color><#676E95>.</color>emissionType<#676E95>;</color>
-    } }\r\n\t\t<#9B8CFA>public</color> float MetallicAmount <#1D9FFF>{</color> get
-    <#1D9FFF>{</color> return <#9B8CFA>this</color><#676E95>.</color>metallicAmount<#676E95>;</color>
-    } }\r\n\t\t<#9B8CFA>public</color> float NormalAmount <#1D9FFF>{</color> get
-    <#1D9FFF>{</color> return <#9B8CFA>this</color><#676E95>.</color>normalAmount<#676E95>;</color>
-    } }\r\n\t\t<#9B8CFA>public</color> float HeightAmount <#1D9FFF>{</color> get
-    <#1D9FFF>{</color> return <#9B8CFA>this</color><#676E95>.</color>heightAmount<#676E95>;</color>
-    } }\r\n\t\t<#9B8CFA>public</color> float OcclusionAmount <#1D9FFF>{</color> get
-    <#1D9FFF>{</color> return <#9B8CFA>this</color><#676E95>.</color>occlusionAmount<#676E95>;</color>
-    } }\r\n\r\n\t\t<#9B8CFA>public</color> SkinDataProperties<#1D9FFF>(</color>Color
-    _albedoColor, Color _emissionColor, float _emissionIntensity, EmissionType _emissionType,
-    float _metallicAmount, float _normalAmount, float _heightAmount, float _occlusionAmount<#1D9FFF><#1D9FFF>)</color></color>\r\n\t\t<#1D9FFF>{</color>\r\n\t\t\t<#9B8CFA>this</color><#676E95>.</color>albedoColor
-    <#676E95>=</color> _albedoColor<#676E95>;</color>\r\n\t\t\t<#9B8CFA>this</color><#676E95>.</color>emissionColor
-    <#676E95>=</color> _emissionColor<#676E95>;</color>\r\n\t\t\t<#9B8CFA>this</color><#676E95>.</color>emissionIntensity
-    <#676E95>=</color> _emissionIntensity<#676E95>;</color>\r\n\t\t\t<#9B8CFA>this</color><#676E95>.</color>emissionType
-    <#676E95>=</color> _emissionType<#676E95>;</color>\r\n\t\t\t<#9B8CFA>this</color><#676E95>.</color>metallicAmount
-    <#676E95>=</color> _metallicAmount<#676E95>;</color>\r\n\t\t\t<#9B8CFA>this</color><#676E95>.</color>normalAmount
-    <#676E95>=</color> _normalAmount<#676E95>;</color>\r\n\t\t\t<#9B8CFA>this</color><#676E95>.</color>heightAmount
-    <#676E95>=</color> _heightAmount<#676E95>;</color>\r\n\t\t\t<#9B8CFA>this</color><#676E95>.</color>occlusionAmount
-    <#676E95>=</color> _occlusionAmount<#676E95>;</color>\r\n\t\t}\r\n\r\n\t\t<#9B8CFA>public</color>
-    <#FF6AA7>void</color> SetData<#1D9FFF>(</color>Color _albedoColor, Color _emissionColor,
-    float _emissionIntensity, EmissionType _emissionType, float _metallicAmount,
-    float _normalAmount, float _heightAmount, float _occlusionAmount<#1D9FFF><#1D9FFF>)</color></color>\r\n\t\t<#1D9FFF>{</color>\r\n\t\t\t<#9B8CFA>this</color><#676E95>.</color>albedoColor
-    <#676E95>=</color> _albedoColor<#676E95>;</color>\r\n\t\t\t<#9B8CFA>this</color><#676E95>.</color>emissionColor
-    <#676E95>=</color> _emissionColor<#676E95>;</color>\r\n\t\t\t<#9B8CFA>this</color><#676E95>.</color>emissionIntensity
-    <#676E95>=</color> _emissionIntensity<#676E95>;</color>\r\n\t\t\t<#9B8CFA>this</color><#676E95>.</color>emissionType
-    <#676E95>=</color> _emissionType<#676E95>;</color>\r\n\t\t\t<#9B8CFA>this</color><#676E95>.</color>metallicAmount
-    <#676E95>=</color> _metallicAmount<#676E95>;</color>\r\n\t\t\t<#9B8CFA>this</color><#676E95>.</color>normalAmount
-    <#676E95>=</color> _normalAmount<#676E95>;</color>\r\n\t\t\t<#9B8CFA>this</color><#676E95>.</color>heightAmount
-    <#676E95>=</color> _heightAmount<#676E95>;</color>\r\n\t\t\t<#9B8CFA>this</color><#676E95>.</color>occlusionAmount
-    <#676E95>=</color> _occlusionAmount<#676E95>;</color>\r\n\t\t}\r\n\r\n\t\t<#9B8CFA>public</color>
-    SkinDataProperties<#1D9FFF>(</color><#1D9FFF><#1D9FFF>)</color></color> <#1D9FFF>{</color>}\r\n\t}\r\n}"
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7bfa0e04962105646a8de668185beaaf, type: 2}
-  m_sharedMaterial: {fileID: -5388065775793426591, guid: 7bfa0e04962105646a8de668185beaaf, type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 10
-  m_fontSizeBase: 10
-  m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 1
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &166601946
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 166601943}
-  m_CullTransparentMesh: 1
 --- !u!1 &167348360
 GameObject:
   m_ObjectHideFlags: 0
@@ -28843,6 +28539,7 @@ GameObject:
   - component: {fileID: 485571603}
   - component: {fileID: 485571602}
   - component: {fileID: 485571601}
+  - component: {fileID: 485571600}
   m_Layer: 5
   m_Name: category_open_source_data
   m_TagString: Untagged
@@ -28870,6 +28567,50 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &485571600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485571598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 0
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 485571603}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &485571601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28883,7 +28624,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Arrow: {fileID: 1665056610}
-  m_Button: {fileID: 1665056613}
+  m_Button: {fileID: 485571600}
   m_Children:
   - {fileID: 1062643321}
 --- !u!114 &485571602
@@ -28893,7 +28634,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 485571598}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4801b2f2963308e42b37058239248f1a, type: 3}
   m_Name: 
@@ -43804,7 +43545,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1808981659}
   m_HandleRect: {fileID: 1808981658}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -55103,7 +54844,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 445274886}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.41749996
+  m_Size: 0.4175
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -65663,145 +65404,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 990776873}
   m_CullTransparentMesh: 0
---- !u!1 &990958878
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 990958879}
-  - component: {fileID: 990958880}
-  m_Layer: 5
-  m_Name: code_editor
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &990958879
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 990958878}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 166601944}
-  m_Father: {fileID: 1340627890}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 200.5, y: 8}
-  m_SizeDelta: {x: -550, y: -334}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &990958880
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 990958878}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7eb92e7bb80df214cb6545e4c6e51c22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Code: "<#CF68E1>using</color> <#DA5749>UnityEngine</color><#676E95>;</color>\r\n\r\n<#CF68E1>using</color>
-    Skillwarz<#676E95>.</color>SkinManager<#676E95>;</color>\r\n\r\n<#9B8CFA>public</color>
-    <#9B8CFA>class</color> <#56B7C3>testClass</color>\r\n<#1D9FFF>{</color>\r\n   
-    <#9B8CFA>public</color> <#FF6AA7>string</color><#FFD700>[</color><#FFD700>]</color>
-    GetTexturePathFromString<#1D9FFF>(</color><#FF6AA7>string</color> _Input<#1D9FFF><#1D9FFF>)</color></color>\r\n   
-    <#1D9FFF>{</color>\r\n        <#676E95>/</color><#676E95>/</color> The value
-    that will be output at the end<#676E95>.</color>\r\n        <#FF6AA7>string</color><#FFD700>[</color><#FFD700>]</color>
-    _output <#676E95>=</color> new <#FF6AA7>string</color><#FFD700>[</color>7<#FFD700>]</color><#676E95>;</color>\r\n\r\n       
-    <#676E95>/</color><#676E95>/</color> Get an array of <#FF6AA7>string</color>
-    corresponding to the lines of the _Input<#676E95>.</color>\r\n        <#FF6AA7>string</color><#FFD700>[</color><#FFD700>]</color>
-    _inputInLines <#676E95>=</color> _Input<#676E95>.</color>Split<#1D9FFF>(</color>'\\n'<#1D9FFF><#1D9FFF>)</color></color><#676E95>;</color>\r\n\r\n       
-    <#676E95>/</color><#676E95>/</color> Get all the texture paths by remove the
-    texture names on every lines<#676E95>.</color>\r\n        for <#1D9FFF>(</color><#FF6AA7>int</color>
-    i <#676E95>=</color> 0<#676E95>;</color> i < 7<#676E95>;</color> i<#676E95>+</color><#676E95>+</color><#1D9FFF><#1D9FFF>)</color></color>\r\n       
-    <#1D9FFF>{</color>\r\n            <#FF6AA7>string</color> _textureName <#676E95>=</color>
-    SkinData<#676E95>.</color>IntToTextureName<#1D9FFF>(</color>i<#1D9FFF><#1D9FFF>)</color></color><#676E95>;</color>\r\n           
-    <#FF6AA7>string</color> _outputPath <#676E95>=</color> _inputInLines<#FFD700>[</color>i<#FFD700>]</color><#676E95>.</color>Replace<#1D9FFF>(</color>_textureName
-    <#676E95>+</color> \": \", \"\"<#1D9FFF><#1D9FFF>)</color></color><#676E95>;</color>\r\n\r\n           
-    Debug<#676E95>.</color>Log<#1D9FFF>(</color>\"The path of the texture \" <#676E95>+</color>
-    i <#676E95>+</color> \" <#1D9FFF>(</color>\" <#676E95>+</color> _textureName
-    <#676E95>+</color> \"<#1D9FFF><#1D9FFF>)</color></color> is: \" <#676E95>+</color>
-    _outputPath<#1D9FFF><#1D9FFF>)</color></color><#676E95>;</color>\r\n\r\n           
-    <#676E95>/</color><#676E95>/</color> OUTPUT:\r\n            <#676E95>/</color><#676E95>/</color>
-    <#676E95>.</color><#676E95>/</color>textures<#676E95>/</color>albedo<#676E95>.</color>png\r\n           
-    <#676E95>/</color><#676E95>/</color> <#676E95>.</color><#676E95>/</color>textures<#676E95>/</color>detail<#676E95>.</color>png\r\n           
-    <#676E95>/</color><#676E95>/</color> <#676E95>.</color><#676E95>/</color>textures<#676E95>/</color>emission<#676E95>.</color>png\r\n           
-    <#676E95>/</color><#676E95>/</color> <#676E95>.</color><#676E95>/</color>textures<#676E95>/</color>metallic<#676E95>.</color>png\r\n           
-    <#676E95>/</color><#676E95>/</color> <#676E95>.</color><#676E95>/</color>textures<#676E95>/</color>normal<#676E95>.</color>png\r\n           
-    <#676E95>/</color><#676E95>/</color> <#676E95>.</color><#676E95>/</color>textures<#676E95>/</color>height<#676E95>.</color>png\r\n           
-    <#676E95>/</color><#676E95>/</color> <#676E95>.</color><#676E95>/</color>textures<#676E95>/</color>occlusion<#676E95>.</color>png\r\n           
-    \r\n            _output<#FFD700>[</color>i<#FFD700>]</color> <#676E95>=</color>
-    _outputPath<#676E95>;</color>\r\n        }\r\n\r\n        return _output<#676E95>;</color>\r\n   
-    }\r\n}"
-  m_Agents:
-  - m_From:
-    - public
-    - private
-    - class
-    - this
-    - struct
-    - enum
-    - namespace
-    - '#region'
-    m_Color: {r: 0.60784316, g: 0.54901963, b: 0.98039216, a: 1}
-  - m_From:
-    - testClass
-    - SerializeField
-    - Header
-    - TextArea
-    - ContextMenu
-    - Serializable
-    m_Color: {r: 0.3372549, g: 0.7176471, b: 0.7647059, a: 1}
-  - m_From:
-    - using
-    m_Color: {r: 0.8117647, g: 0.40784314, b: 0.88235295, a: 1}
-  - m_From:
-    - string
-    - bool
-    - char
-    - long
-    - int
-    - void
-    m_Color: {r: 1, g: 0.41568628, b: 0.654902, a: 1}
-  - m_From:
-    - '['
-    - ']'
-    m_Color: {r: 1, g: 0.84313726, b: 0, a: 1}
-  - m_From:
-    - (
-    - )
-    - '{'
-    - )
-    m_Color: {r: 0.11372549, g: 0.62352943, b: 1, a: 1}
-  - m_From:
-    - UnityEngine
-    - System
-    - .Collections
-    - .Generic
-    - .Networking
-    - .IO
-    m_Color: {r: 0.85490197, g: 0.34117648, b: 0.28627452, a: 1}
-  - m_From:
-    - ;
-    - .
-    - =
-    - +
-    - '-'
-    - '*'
-    m_Color: {r: 0.40392157, g: 0.43137255, b: 0.58431375, a: 1}
-  m_NumberColor: {r: 0.92156863, g: 0.37254903, b: 0.22745098, a: 1}
 --- !u!1 &992352783
 GameObject:
   m_ObjectHideFlags: 0
@@ -65890,6 +65492,7 @@ GameObject:
   - component: {fileID: 993098308}
   - component: {fileID: 993098310}
   - component: {fileID: 993098311}
+  - component: {fileID: 993098312}
   m_Layer: 5
   m_Name: category_texture_maps
   m_TagString: Untagged
@@ -66021,7 +65624,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 993098306}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4801b2f2963308e42b37058239248f1a, type: 3}
   m_Name: 
@@ -66041,7 +65644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Arrow: {fileID: 1833995201}
-  m_Button: {fileID: 1833995204}
+  m_Button: {fileID: 993098312}
   m_Children:
   - {fileID: 60769477}
   - {fileID: 2115789321}
@@ -66050,6 +65653,50 @@ MonoBehaviour:
   - {fileID: 1351678541}
   - {fileID: 1091729755}
   - {fileID: 1078774383}
+--- !u!114 &993098312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993098306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 0
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 993098308}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &993286141
 GameObject:
   m_ObjectHideFlags: 0
@@ -88590,7 +88237,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 43799044}
-  - {fileID: 990958879}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -95668,7 +95314,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2121295490}
   m_HandleRect: {fileID: 2121295489}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -97172,8 +96818,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 524365371}
   m_HandleRect: {fileID: 524365369}
   m_Direction: 2
-  m_Value: 0.99999917
-  m_Size: 0.8890624
+  m_Value: 1
+  m_Size: 0.8890625
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
