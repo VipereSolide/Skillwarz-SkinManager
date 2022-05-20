@@ -17,7 +17,7 @@ public class makeSkin : MonoBehaviour
     [Header("Step 1")]
     [SerializeField] private TMP_InputField m_SkinNameInputField;
     [SerializeField] private TMP_InputField m_SkinDescriptionInputField;
-    [SerializeField] private CustomDropdown m_SkinWeaponDropDown;
+    [SerializeField] private TMP_Text m_SkinWeaponDropDown;
 
     [Header("Step 2")]
 
@@ -58,7 +58,7 @@ public class makeSkin : MonoBehaviour
         };
 
         bool _IsEnabled = true;
-        WeaponType _skinWeaponType = (WeaponType)System.Enum.Parse(typeof(WeaponType), m_SkinWeaponDropDown.selectedText.text);
+        WeaponType _skinWeaponType = (WeaponType)System.Enum.Parse(typeof(WeaponType), m_SkinWeaponDropDown.text);
 
         Color _skinAlbedoColor = m_AlbedoColorPicker.CurrentColor;
         Color _skinEmissionColor = m_EmissionColorPicker.CurrentColor;
