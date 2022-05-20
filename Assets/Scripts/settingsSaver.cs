@@ -5,13 +5,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using TMPro;
+using Michsky.UI.ModernUIPack;
 
 public class settingsSaver : MonoBehaviour
 {
     public static settingsSaver main;
 
     [SerializeField] private framerateLocker m_FramerateLocker;
-    [SerializeField] private TMP_InputField m_SkillwarzPathField;
+    [SerializeField] private CustomDropdown m_ResolutionCustomDropdown;
+    [SerializeField] private ResolutionDropdown m_ResolutionDropdown;
 
     private void Awake()
     {
@@ -31,7 +33,7 @@ public class settingsSaver : MonoBehaviour
     private void SaveSettings()
     {
         PlayerPrefs.SetInt(nameof(m_FramerateLocker), m_FramerateLocker.LockedFPS);
-        PlayerPrefs.SetString(nameof(m_SkillwarzPathField), m_SkillwarzPathField.text);
+        PlayerPrefs.SetInt(nameof(m_ResolutionCustomDropdown), m_ResolutionCustomDropdown.selectedItemIndex);
 
         SaveActiveSkins();
     }
@@ -39,7 +41,8 @@ public class settingsSaver : MonoBehaviour
     private void LoadSettings()
     {
         m_FramerateLocker.SetLockedFPS(PlayerPrefs.GetInt(nameof(m_FramerateLocker)));
-        m_SkillwarzPathField.text = PlayerPrefs.GetString(nameof(m_SkillwarzPathField));
+        m_ResolutionCustomDropdown.selectedItemIndex = PlayerPrefs.GetInt(nameof(m_ResolutionCustomDropdown));
+        m_ResolutionDropdown.SetResolution(m_ResolutionCustomDropdown.dropdownItems[m_ResolutionCustomDropdown.selectedItemIndex].itemName);
     }
 
     public void SaveActiveSkins()

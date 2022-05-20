@@ -1,26 +1,24 @@
-using System;
 namespace Skillwarz.SkinManager
 {
 	using System;
 	using System.IO;
-	using System.Linq;
 
 	using UnityEngine;
 
 	public static class SkinDataInterpreter
 	{
         /// <summary> Takes a string corresponding to the content of a .swskin file. It will return a SkinData class by reading the string. </summary>
-        /// <param name="value"> The content of the .swskin </param>
-		public static SkinData GetSkinData(string value, bool _loadTextures = false)
+        /// <param name="_Value"> The content of the .swskin </param>
+		public static SkinData GetSkinData(string _Value, bool _LoadTextures = false)
 		{
-			string[] _valueFileLines = value.Split('\n');
+			string[] _valueFileLines = _Value.Split('\n');
 
 			string _outputSkinName = _valueFileLines[0].Replace("skin_name: ","").Replace("\"","");
 			string _outputSkinDescription = _valueFileLines[1].Replace("skin_description: ","").Replace("\"","");
 			
-			// <STRING REFERENCES>
+			#region StringReferences
 			string _outputSkinProfilePicturePath = _valueFileLines[2].Replace("skin_profile_picture: ","").Replace("\"","");
-            _outputSkinProfilePicturePath = GetVariableData(_outputSkinProfilePicturePath);
+            _outputSkinProfilePicturePath = SkinDataVariableToFolder(_outputSkinProfilePicturePath);
 
 			string[] _outputSkinTexturePaths = new string[7]
 			{
@@ -32,8 +30,9 @@ namespace Skillwarz.SkinManager
 				_valueFileLines[11].Replace("height: ","").Replace("\"",""),
 				_valueFileLines[12].Replace("occlusion: ","").Replace("\"","")
 			};
+
 			string _outputDefaultPath = _valueFileLines[13].Replace("default_path: ","").Replace("\"","").Replace("    ","");
-            _outputDefaultPath = GetVariableData(_outputDefaultPath);
+            _outputDefaultPath = SkinDataVariableToFolder(_outputDefaultPath);
 
 			string _outputAlbedoColor = _valueFileLines[17].Replace("albedo_color: ","").Replace("\"","");
 			string _outputEmissionColor = _valueFileLines[18].Replace("emission_color: ","").Replace("\"","");
@@ -46,10 +45,8 @@ namespace Skillwarz.SkinManager
 			
 			string _outputIsEnabled = _valueFileLines[27].Replace("isEnabled: ","").Replace("\"","");
 			string _outputWeapon = _valueFileLines[28].Replace("weapon: ","").Replace("\"","");
-			// <STRING REFERENCES />
-
-			// <VALUE REFERENCES>
-
+			#endregion
+			#region References
 			Texture2D _skinProfilePicture = new Texture2D(2,2);
             if (File.Exists(_outputSkinProfilePicturePath))
             {
@@ -89,12 +86,12 @@ namespace Skillwarz.SkinManager
 
             */
 
-            if (_loadTextures)
+            if (_LoadTextures)
             {
                 for(int i = 0; i < _outputSkinTexturePaths.Length; i++)
                 {
                     Texture2D _texture = new Texture2D(2,2);
-                    string _path = GetVariableData((_outputDefaultPath + "/" + _outputSkinTexturePaths[i]).Replace("    ",""));
+                    string _path = SkinDataVariableToFolder((_outputDefaultPath + "/" + _outputSkinTexturePaths[i]).Replace("    ",""));
 
                     if (!File.Exists(_path))
                         continue;
@@ -137,7 +134,7 @@ namespace Skillwarz.SkinManager
 
             bool _isEnabled = bool.Parse(_outputIsEnabled);
             WeaponType _weapon = (WeaponType)Enum.Parse(typeof(WeaponType), _outputWeapon);
-			// <VALUE REFERENCES />
+			#endregion
 
             SkinDataProperties _properties = new SkinDataProperties(_albedoColor, _emissionColor, _emissionIntensity, _emissionType, _metallicAmount, _normalOutput, _heightAmount, _occlusionAmount);
             SkinData _data = new SkinData(_outputSkinName, _outputSkinDescription, _skinProfilePicture, _isEnabled, _skinTextures, _properties, _weapon);
@@ -146,7 +143,11 @@ namespace Skillwarz.SkinManager
 			return _data;
 		}
 
-        public static string GetVariableData(string _Content)
+        /// <summary>
+        /// Returns a string representing a folder path using a swskin variable (e.g. ###MyDocuments###).
+        /// </summary>
+        /// <param name="_Content"> The swskin variable. </param>
+        public static string SkinDataVariableToFolder(string _Content)
         {
             string _output = _Content;
 

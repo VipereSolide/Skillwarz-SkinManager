@@ -1,6 +1,5 @@
 using System.IO;
 using System;
-using System.Diagnostics;
 
 using UnityEngine;
 
@@ -11,50 +10,18 @@ using Skillwarz.SkinManager;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private CanvasGroup m_WarningDeleteFilesWindow;
-    [SerializeField] private TMP_InputField m_SkillwarzPathField;
-    [SerializeField] private string m_SkillwarzPath = "";
 
     private bool m_IsFirstTimeLaunching = false;
 
     private void Start()
     {
-        // Updates the m_SkillwarzPath string based on the m_SkillwarzPathField input field.
-        UpdateSkillwarzPath();
-
-        // Attaches a listener to the input field so it updates the m_SkillwarzPath everytime we edit it.
-        m_SkillwarzPathField.onEndEdit.AddListener( delegate { UpdateSkillwarzPath(); } );
-
         m_IsFirstTimeLaunching = ( PlayerPrefs.GetInt("m_IsFirstTimeLaunching") == 0 ) ? true : false;
     }
 
     private void OnApplicationQuit()
     {
-        // Unattaches the listener attached above.
-        m_SkillwarzPathField.onEndEdit.RemoveListener( delegate { UpdateSkillwarzPath(); } );
-
         PlayerPrefs.SetInt("m_IsFirstTimeLaunching", (!m_IsFirstTimeLaunching) ? 1 : 0);
     }
-
-    public void UpdateSkillwarzPath()
-    {
-        m_SkillwarzPath = m_SkillwarzPathField.text;
-    }
-
-    // Public so it can be called by the Unity UI action system.
-    public void LaunchSkillwarz()
-    {
-        if (m_IsFirstTimeLaunching)
-        {
-            CanvasGroupHelper.SetActive(m_WarningDeleteFilesWindow, true);
-
-            m_IsFirstTimeLaunching = false;
-            return;
-        }
-
-        // Moves all the skin files in the good folder.
-        MoveFilesToWeaponSkins();
-    }
-
     public void ResetFirstTimeLaunching()
     {
         m_IsFirstTimeLaunching = true;

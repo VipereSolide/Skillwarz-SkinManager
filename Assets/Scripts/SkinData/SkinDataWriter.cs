@@ -12,14 +12,12 @@ namespace Skillwarz.SkinManager
         /// <param name="fileName"> The name of your .swskin file. </param>
         public static void WriteSkinData(SkinData data, string fileLocation, string fileName)
         {
-            Debug.Log(fileLocation);
-            string _realFileLocation = SkinDataInterpreter.GetVariableData(fileLocation);
+            string _realFileLocation = SkinDataInterpreter.SkinDataVariableToFolder(fileLocation);
             DirectoryInfo _skinDirectory = Directory.CreateDirectory(_realFileLocation + data.SkinName);
             DirectoryInfo _skinDirectoryProfile = Directory.CreateDirectory(_realFileLocation + data.SkinName + "/" + "profile/");
             DirectoryInfo _skinDirectoryTextures = Directory.CreateDirectory(_realFileLocation + data.SkinName + "/" + "textures/");
 
-            // <WRITE THE TEXTURES>
-
+            #region WriteTextures
             // Profile Picture
             Texture2D _profilePicture = data.SkinProfilePicture;
 
@@ -73,8 +71,7 @@ namespace Skillwarz.SkinManager
                 byte[] _textureBytes = _texture.EncodeToPNG();
                 File.WriteAllBytes(_fullName, _textureBytes);
             }
-
-            // <WRITE THE TEXTURES />
+            #endregion
 
             string content = GetSkinDataInText(data, fileLocation, fileName);
             File.WriteAllText(_skinDirectoryProfile.FullName + "/" + fileName + ".swskin", content);
@@ -86,7 +83,6 @@ namespace Skillwarz.SkinManager
         /// <param name="fileName"> The name of your .swskin file. </param>
         public static string GetSkinDataInText(SkinData data, string fileLocation, string fileName)
         {
-            Debug.Log(fileLocation);
             string _skinName = "skin_name: " + "\"" + data.SkinName + "\"";
             string _skinDescription = "skin_description: " + "\"" + data.SkinDescription + "\"";
             

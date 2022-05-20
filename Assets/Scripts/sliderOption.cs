@@ -14,6 +14,7 @@ public class sliderOption : MonoBehaviour
 
     private float m_CurrentSliderValue;
     public float CurrentValue { get { return m_CurrentSliderValue; } }
+    public Slider Slider { get { return m_OptionSlider; } }
 
     private void Start()
     {

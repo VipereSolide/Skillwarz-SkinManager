@@ -14,14 +14,7 @@ namespace FeatherLight.Pro
         /// <param name="_value"> The active value. </param>
         public static void SetActive(CanvasGroup _group, bool value)
         {
-            if (value)
-            {
-                _group.alpha = 1;
-            }
-            else
-            {
-                _group.alpha = 0;
-            }
+            _group.alpha = (value) ? 1 : 0;
 
             _group.interactable = value;
             _group.blocksRaycasts = value;
@@ -39,14 +32,7 @@ namespace FeatherLight.Pro
                 return;
             }
 
-            if (value)
-            {
-                InstanceCanvasGroup.alpha = 1;
-            }
-            else
-            {
-                InstanceCanvasGroup.alpha = 0;
-            }
+            InstanceCanvasGroup.alpha = (value) ? 1 : 0;
 
             InstanceCanvasGroup.interactable = value;
             InstanceCanvasGroup.blocksRaycasts = value;
