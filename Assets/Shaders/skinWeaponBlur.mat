@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: skinWeaponBlur
-  m_Shader: {fileID: 4800000, guid: 773a8a98cc0f71b4eba6c41a892c9044, type: 3}
+  m_Shader: {fileID: 4800000, guid: 9c532b3e27022f142b6a72d844fd84de, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -25,7 +25,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Factor: 0.98
-    - _Size: 4
+    - _Size: 2.11
     m_Colors:
     - _AdditiveColor: {r: 0, g: 0, b: 0, a: 0}
     - _MultiplyColor: {r: 1, g: 1, b: 1, a: 1}

@@ -20,11 +20,20 @@ public class GameManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        PlayerPrefs.SetInt("m_IsFirstTimeLaunching", (!m_IsFirstTimeLaunching) ? 1 : 0);
+        PlayerPrefs.SetInt("m_IsFirstTimeLaunching", (m_IsFirstTimeLaunching) ? 0 : 1);
     }
-    public void ResetFirstTimeLaunching()
+
+    public void ApplySkinConfiguration()
     {
-        m_IsFirstTimeLaunching = true;
+        if (m_IsFirstTimeLaunching)
+        {
+            StartCoroutine(CanvasGroupHelper.Fade(m_WarningDeleteFilesWindow, true, 0.1f));
+            m_IsFirstTimeLaunching = false;
+        }
+        else
+        {
+            MoveFilesToWeaponSkins();
+        }
     }
 
     private void MoveFilesToWeaponSkins()
