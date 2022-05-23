@@ -27,6 +27,7 @@ public class rememberPosition : MonoBehaviour
         }
 
         SetVector3(_name, transform.position);
+        Console.Instance.SendMessage("Saved Position of <#00ffff>" + transform.name + "</color>: " + transform.position);
     }
 
     private void SetVector3(string _id, Vector3 _vec)
@@ -64,5 +65,7 @@ public class rememberPosition : MonoBehaviour
             _pos = new Vector3(Screen.width / 2, Screen.height / 2, 0);
 
         transform.position = _pos;
+
+        Console.Instance.SendMessage("Loaded Position of <#00ffff>" + transform.name + "</color>: " + _pos);
     }
 }

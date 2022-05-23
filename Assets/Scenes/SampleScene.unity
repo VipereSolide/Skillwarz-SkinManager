@@ -100570,7 +100570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f339c2ad4aaac847b8063239ab50fb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_toggleConsoleKeyCode: 45
+  m_toggleConsoleKeyCode: 269
   m_backgroundCanvasGroup: {fileID: 1267844302}
   m_backgroundFadeTime: 0.2
   m_isActive: 0
@@ -136318,7 +136318,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Console succefully initialized...
+  m_text: '<#FC5392>Console succefully initialized...</color>
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7bfa0e04962105646a8de668185beaaf, type: 2}
   m_sharedMaterial: {fileID: -5388065775793426591, guid: 7bfa0e04962105646a8de668185beaaf, type: 2}

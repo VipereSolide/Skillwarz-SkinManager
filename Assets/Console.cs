@@ -27,6 +27,9 @@ public class Console : MonoBehaviour
 
     private void Start()
     {
+        if ((m_backgroundCanvasGroup.alpha == 0 && !m_isActive) || (m_backgroundCanvasGroup.alpha == 1 && m_isActive))
+            return;
+
         this.SetActive(m_isActive);
     }
 
