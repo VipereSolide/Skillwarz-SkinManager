@@ -41,8 +41,10 @@ public class settingsSaver : MonoBehaviour
     private void LoadSettings()
     {
         m_FramerateLocker.SetLockedFPS(PlayerPrefs.GetInt(nameof(m_FramerateLocker)));
+        
+        // Load resolution.
         m_ResolutionCustomDropdown.selectedItemIndex = PlayerPrefs.GetInt(nameof(m_ResolutionCustomDropdown));
-        m_ResolutionDropdown.SetResolution(m_ResolutionCustomDropdown.dropdownItems[m_ResolutionCustomDropdown.selectedItemIndex].itemName);
+        m_ResolutionDropdown.UpdateResolution();
     }
 
     public void SaveActiveSkins()

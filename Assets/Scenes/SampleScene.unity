@@ -110231,7 +110231,19 @@ MonoBehaviour:
         m_Calls: []
   dropdownEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1926826699}
+        m_TargetAssemblyTypeName: ResolutionDropdown, Assembly-CSharp
+        m_MethodName: UpdateResolution
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   hoverSound: {fileID: 0}
   clickSound: {fileID: 0}
   isOn: 0
@@ -125753,6 +125765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a23dd6d6c49114286a1dfad81daa09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ResolutionCustomDropdown: {fileID: 1678824983}
 --- !u!1 &1927324525
 GameObject:
   m_ObjectHideFlags: 0
