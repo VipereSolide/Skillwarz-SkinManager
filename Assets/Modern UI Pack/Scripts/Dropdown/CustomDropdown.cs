@@ -75,6 +75,7 @@ namespace Michsky.UI.ModernUIPack
         {
             public string itemName = "Dropdown Item";
             public Sprite itemIcon;
+            public GameObject itemObject;
             public UnityEvent OnItemSelection = new UnityEvent();
         }
 
@@ -134,6 +135,7 @@ namespace Michsky.UI.ModernUIPack
             {
                 GameObject go = Instantiate(itemObject, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
                 go.transform.SetParent(itemParent, false);
+                dropdownItems[i].itemObject = go;
 
                 setItemText = go.GetComponentInChildren<TextMeshProUGUI>();
                 textHelper = dropdownItems[i].itemName;
@@ -176,7 +178,7 @@ namespace Michsky.UI.ModernUIPack
             {
                 selectedText.text = dropdownTag;
                 currentListParent = transform.parent;
-                Debug.Log("Dropdown - There is no dropdown items in the list.", this);
+//                Debug.Log("Dropdown - There is no dropdown items in the list.", this);
             }
         }
 

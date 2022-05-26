@@ -11,6 +11,7 @@ namespace Skillwarz.SkinManager.ProfileManagement
     public class InventoryProfilesManager : MonoBehaviour
     {
         [SerializeField] private CustomDropdown m_profilesDropdown;
+        [SerializeField] private Transform m_profilesDropdownContainer;
         [SerializeField] private Sprite m_uiMask;
 
 
@@ -116,6 +117,16 @@ namespace Skillwarz.SkinManager.ProfileManagement
         public void CreateProfileWithInputField(GameObject _InputField)
         {
             SaveSelectedSkins(_InputField.GetComponent<TMP_InputField>().text);
+
+            foreach(Transform _T in m_profilesDropdownContainer)
+                Destroy(_T.gameObject);
+
+            m_profilesDropdown.dropdownItems.Clear();
+            m_profilesDropdown.SetupDropdown();
+
+            CreateProfileDropdownItems();
+
+            Console.Instance.SendMessage("Created new profile <#00ff99>" + _InputField.GetComponent<TMP_InputField>().text + "</color>.");
         }
 
         private void Start()
