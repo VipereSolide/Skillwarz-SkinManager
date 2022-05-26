@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
         foreach(skinObject _object in _activeSkins)
         {
             // If the object doesn't exist, go to the next object...
-            if (_object == null)
+            if (_object == null || _object.IsDefaultSkin)
                 continue;
 
             // Class that contains all the data relative to the skins.

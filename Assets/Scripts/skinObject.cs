@@ -30,6 +30,7 @@ public class skinObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     private CanvasGroup activeSkinGroupChecked = null;
 
     [Header("Values")]
+    [SerializeField] private bool m_isDefaultSkin;
 
     [SerializeField]
     private float activeSkinToggleSpeed = 0.15f;
@@ -48,6 +49,7 @@ public class skinObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     private bool isSkinActive = false;
 
     public bool IsEnabled { get { return isSkinActive; } }
+    public bool IsDefaultSkin { get { return m_isDefaultSkin; } }
 
     public void OnPointerEnter(PointerEventData data)
     {
