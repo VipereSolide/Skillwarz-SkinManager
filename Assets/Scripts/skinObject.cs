@@ -10,7 +10,7 @@ using Skillwarz.SkinManager;
 
 public class skinObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
-    private SkinData m_skinData;
+    [SerializeField] private SkinData m_skinData;
     public SkinData SkinData { get { return m_skinData; } }
 
     [Header("References")]
@@ -89,9 +89,7 @@ public class skinObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void SetSkinData(SkinData data)
     {
-        this.m_skinData = data;
-
-        
+        this.m_skinData = data;        
     }
 
     public void SetTextAndImage(string _name, Texture2D _image)

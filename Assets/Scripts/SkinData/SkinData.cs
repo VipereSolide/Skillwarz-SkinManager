@@ -16,7 +16,7 @@ namespace Skillwarz.SkinManager
 		AK47,
 		AUG,
 		DAO,
-		Deagle,
+		DEAGLE,
 		G22,
 		K10,
 		KSG,
@@ -27,7 +27,7 @@ namespace Skillwarz.SkinManager
 		MG4,
 		MLG140,
 		P99,
-		USP45,
+		USP,
 		UZI
 	}
 
@@ -53,10 +53,10 @@ namespace Skillwarz.SkinManager
 		[SerializeField]
 		private WeaponType weapon;
 
-		[SerializeField]
+		[SerializeField, Tooltip("albedo, detail, emission, metallic, normal, height, occlusion")]
 		private Texture2D[] skinTextures = new Texture2D[7] {null, null, null, null, null, null, null};
 
-		[SerializeField]
+		[SerializeField, Tooltip("albedo, detail, emission, metallic, normal, height, occlusion")]
 		private string[] skinTexturePaths = new string[7] {string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty};
 
 		[Space()]
@@ -124,7 +124,7 @@ namespace Skillwarz.SkinManager
 					return 2;
 				case WeaponType.DAO:
 					return 3;
-				case WeaponType.Deagle:
+				case WeaponType.DEAGLE:
 					return 4;
 				case WeaponType.G22:
 					return 5;
@@ -146,7 +146,7 @@ namespace Skillwarz.SkinManager
 					return 13;
 				case WeaponType.P99:
 					return 14;
-				case WeaponType.USP45:
+				case WeaponType.USP:
 					return 15;
 				case WeaponType.UZI:
 					return 16;
