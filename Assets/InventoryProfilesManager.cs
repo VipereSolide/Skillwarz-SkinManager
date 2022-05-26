@@ -1,13 +1,19 @@
 using System;
 using System.IO;
-using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
+using Michsky.UI.ModernUIPack;
 using UnityEngine;
+using TMPro;
 
 namespace Skillwarz.SkinManager.ProfileManagement
 {
     public class InventoryProfilesManager : MonoBehaviour
     {
+        [SerializeField] private CustomDropdown m_profilesDropdown;
+        [SerializeField] private Sprite m_uiMask;
+
+
         public void SaveSelectedSkins(string _ProfileName)
         {
             string _savePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/SkinManager/";
@@ -23,7 +29,7 @@ namespace Skillwarz.SkinManager.ProfileManagement
 
             foreach (skinObject _Object in skinManager.main.ActiveSkins)
             {
-                string _output = (_Object == null) ? "|null" : _Object.SkinData.SkinName;
+                string _output = (_Object == null || _Object.IsDefaultSkin) ? "|null" : _Object.SkinData.SkinName;
                 _content += _output + "\n";
             }
 
@@ -42,8 +48,9 @@ namespace Skillwarz.SkinManager.ProfileManagement
             }
 
             string _content = File.ReadAllText(_fileName);
-            string[] _profileSelectedElements = new string[16]
+            string[] _profileSelectedElements = new string[17]
             {
+                "|null",
                 "|null",
                 "|null",
                 "|null",
@@ -74,8 +81,46 @@ namespace Skillwarz.SkinManager.ProfileManagement
                 _profileSelectedElements[i] = _Line;
             }
 
-            Profile _output = new Profile(_profileSelectedElements);
+            Profile _output = new Profile(_profileSelectedElements, _ProfileName);
             return _output;
+        }
+
+        public Profile[] LoadProfiles()
+        {
+            string[] _profiles = Directory.GetFiles(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments) + "/SkinManager/", "*.swskinprofile", SearchOption.AllDirectories);
+            List<Profile> _output = new List<Profile>();
+
+            for (int i = 0; i < _profiles.Length; i++)
+            {
+                _output.Add(LoadSelectedSkins(Path.GetFileNameWithoutExtension(_profiles[i])));
+            }
+
+            return _output.ToArray();
+        }
+
+        public void CreateProfileDropdownItems()
+        {
+            Profile[] _loadedProfiles = LoadProfiles();
+
+            foreach (Profile _Profile in _loadedProfiles)
+            {
+                m_profilesDropdown.CreateNewItem(_Profile.ProfileName, m_uiMask);
+
+                m_profilesDropdown.dropdownItems[m_profilesDropdown.dropdownItems.Count - 1].OnItemSelection.AddListener(() =>
+                {
+                    skinManager.main.SetActiveSkins(_Profile.SelectedElements);
+                });
+            }
+        }
+
+        public void CreateProfileWithInputField(GameObject _InputField)
+        {
+            SaveSelectedSkins(_InputField.GetComponent<TMP_InputField>().text);
+        }
+
+        private void Start()
+        {
+            CreateProfileDropdownItems();
         }
     }
 
@@ -83,8 +128,12 @@ namespace Skillwarz.SkinManager.ProfileManagement
     public class Profile
     {
         [SerializeField]
-        private string[] m_selectedElements = new string[16]
+        private string m_profileName;
+
+        [SerializeField]
+        private string[] m_selectedElements = new string[17]
         {
+            "|null",
             "|null",
             "|null",
             "|null",
@@ -108,9 +157,15 @@ namespace Skillwarz.SkinManager.ProfileManagement
             get { return m_selectedElements; }
         }
 
-        public Profile(string[] _SelectedElements)
+        public string ProfileName
+        {
+            get { return m_profileName; }
+        }
+
+        public Profile(string[] _SelectedElements, string _ProfileName)
         {
             this.m_selectedElements = _SelectedElements;
+            this.m_profileName = _ProfileName;
         }
 
     }
