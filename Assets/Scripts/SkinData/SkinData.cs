@@ -16,7 +16,7 @@ namespace Skillwarz.SkinManager
 		AK47,
 		AUG,
 		DAO,
-		DEAGLE,
+		Deagle,
 		G22,
 		K10,
 		KSG,
@@ -27,7 +27,7 @@ namespace Skillwarz.SkinManager
 		MG4,
 		MLG140,
 		P99,
-		USP,
+		USP45,
 		UZI
 	}
 
@@ -124,7 +124,7 @@ namespace Skillwarz.SkinManager
 					return 2;
 				case WeaponType.DAO:
 					return 3;
-				case WeaponType.DEAGLE:
+				case WeaponType.Deagle:
 					return 4;
 				case WeaponType.G22:
 					return 5;
@@ -146,7 +146,7 @@ namespace Skillwarz.SkinManager
 					return 13;
 				case WeaponType.P99:
 					return 14;
-				case WeaponType.USP:
+				case WeaponType.USP45:
 					return 15;
 				case WeaponType.UZI:
 					return 16;

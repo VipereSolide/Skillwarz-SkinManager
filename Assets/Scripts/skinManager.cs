@@ -78,6 +78,12 @@ public class skinManager : MonoBehaviour
 
         skinObject[] _objects = skinObjectGetter.main.CreatedObjects;
 
+        foreach(skinObject _Object in _objects)
+        {
+            _Object.ToggleActivity(false);
+            DisableWeapon(_Object);
+        }
+
         for (int i = 0; i < _objects.Length; i++)
         {
             for (int c = 0; c < _Names.Length; c++)
