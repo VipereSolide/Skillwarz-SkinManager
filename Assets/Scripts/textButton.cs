@@ -3,6 +3,10 @@ using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
 
+using System;
+using System.Collections;
+using System.Collections.Generic;
+
 public class textButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     [SerializeField]
@@ -28,13 +32,13 @@ public class textButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public void OnPointerEnter(PointerEventData data)
     {
         isHighlighted = true;
-
+            StartCoroutine(Fade(new Color32(241,241,255,255)));
     }
 
     public void OnPointerExit(PointerEventData data)
     {
         isHighlighted = false;
-
+            StartCoroutine(Fade(new Color(1,1,1,0.5f)));
     }
 
     public void OnPointerClick(PointerEventData data)
@@ -43,15 +47,17 @@ public class textButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         underlineObject.StartMoving(underlinePositionObject, underlineMoveSpeed, underlineObjectColor);
     }
 
-    private void Update()
+    private IEnumerator Fade(Color _ToColor)
     {
-        if (isHighlighted)
+        float startTime = Time.time;
+        Color32 _oldColor = content.color;
+
+        while (Time.time < startTime + 0.1f)
         {
-            content.color = Color32.Lerp(content.color, new Color32(241,241,255,255), Time.deltaTime * 15f);
+            content.color = Color32.Lerp(_oldColor, _ToColor, (Time.time - startTime) / 0.1f);
+            yield return null;
         }
-        else
-        {
-            content.color = Color.Lerp(content.color, new Color(1,1,1,0.5f), Time.deltaTime * 15f);
-        }
+
+        content.color = _ToColor;
     }
 }

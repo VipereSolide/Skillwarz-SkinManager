@@ -1,59 +1,59 @@
 namespace Skillwarz.SkinManager
 {
-	using System;
-	using System.IO;
+    using System;
+    using System.IO;
 
-	using UnityEngine;
+    using UnityEngine;
 
-	public static class SkinDataInterpreter
-	{
+    public static class SkinDataInterpreter
+    {
         /// <summary> Takes a string corresponding to the content of a .swskin file. It will return a SkinData class by reading the string. </summary>
         /// <param name="_Value"> The content of the .swskin </param>
 		public static SkinData GetSkinData(string _Value, bool _LoadTextures = false)
-		{
-			string[] _valueFileLines = _Value.Split('\n');
+        {
+            float _firstTime = Time.realtimeSinceStartup;
+            string[] _valueFileLines = _Value.Split('\n');
 
-			string _outputSkinName = _valueFileLines[0].Replace("skin_name: ","").Replace("\"","");
-			string _outputSkinDescription = _valueFileLines[1].Replace("skin_description: ","").Replace("\"","");
-			
-			#region StringReferences
-			string _outputSkinProfilePicturePath = _valueFileLines[2].Replace("skin_profile_picture: ","").Replace("\"","");
+            string _outputSkinName = _valueFileLines[0].Replace("skin_name: ", "").Replace("\"", "");
+            string _outputSkinDescription = _valueFileLines[1].Replace("skin_description: ", "").Replace("\"", "");
+
+            #region StringReferences
+            string _outputSkinProfilePicturePath = _valueFileLines[2].Replace("skin_profile_picture: ", "").Replace("\"", "");
             _outputSkinProfilePicturePath = SkinDataVariableToFolder(_outputSkinProfilePicturePath);
 
-			string[] _outputSkinTexturePaths = new string[7]
-			{
-				_valueFileLines[6].Replace("albedo: ","").Replace("\"",""),
-				_valueFileLines[7].Replace("detail: ","").Replace("\"",""),
-				_valueFileLines[8].Replace("emission: ","").Replace("\"",""),
-				_valueFileLines[9].Replace("metallic: ","").Replace("\"",""),
-				_valueFileLines[10].Replace("normal: ","").Replace("\"",""),
-				_valueFileLines[11].Replace("height: ","").Replace("\"",""),
-				_valueFileLines[12].Replace("occlusion: ","").Replace("\"","")
-			};
+            string[] _outputSkinTexturePaths = new string[7]
+            {
+                _valueFileLines[6].Replace("albedo: ","").Replace("\"",""),
+                _valueFileLines[7].Replace("detail: ","").Replace("\"",""),
+                _valueFileLines[8].Replace("emission: ","").Replace("\"",""),
+                _valueFileLines[9].Replace("metallic: ","").Replace("\"",""),
+                _valueFileLines[10].Replace("normal: ","").Replace("\"",""),
+                _valueFileLines[11].Replace("height: ","").Replace("\"",""),
+                _valueFileLines[12].Replace("occlusion: ","").Replace("\"","")
+            };
 
-			string _outputDefaultPath = _valueFileLines[13].Replace("default_path: ","").Replace("\"","").Replace("    ","");
+            string _outputDefaultPath = _valueFileLines[13].Replace("default_path: ", "").Replace("\"", "").Replace("    ", "");
             _outputDefaultPath = SkinDataVariableToFolder(_outputDefaultPath);
 
-			string _outputAlbedoColor = _valueFileLines[17].Replace("albedo_color: ","").Replace("\"","");
-			string _outputEmissionColor = _valueFileLines[18].Replace("emission_color: ","").Replace("\"","");
-			string _outputEmissionIntensity = _valueFileLines[19].Replace("emission_intensity: ","").Replace("\"","");
-			string _outputEmissionType = _valueFileLines[20].Replace("emission_type: ","").Replace("\"","");
-			string _outputMetallicAmount = _valueFileLines[21].Replace("metallic_amount: ","").Replace("\"","");
-			string _outputNormalAmount = _valueFileLines[22].Replace("normal_amount: ","").Replace("\"","");
-			string _outputHeightAmount = _valueFileLines[23].Replace("height_amount: ","").Replace("\"","");
-			string _outputOcclusionAmount = _valueFileLines[24].Replace("occlusion_amount: ","").Replace("\"","");
-			
-			string _outputIsEnabled = _valueFileLines[27].Replace("isEnabled: ","").Replace("\"","");
-			string _outputWeapon = _valueFileLines[28].Replace("weapon: ","").Replace("\"","");
-			#endregion
-			#region References
-			Texture2D _skinProfilePicture = new Texture2D(2,2);
+            string _outputAlbedoColor = _valueFileLines[17].Replace("albedo_color: ", "").Replace("\"", "");
+            string _outputEmissionColor = _valueFileLines[18].Replace("emission_color: ", "").Replace("\"", "");
+            string _outputEmissionIntensity = _valueFileLines[19].Replace("emission_intensity: ", "").Replace("\"", "");
+            string _outputEmissionType = _valueFileLines[20].Replace("emission_type: ", "").Replace("\"", "");
+            string _outputMetallicAmount = _valueFileLines[21].Replace("metallic_amount: ", "").Replace("\"", "");
+            string _outputNormalAmount = _valueFileLines[22].Replace("normal_amount: ", "").Replace("\"", "");
+            string _outputHeightAmount = _valueFileLines[23].Replace("height_amount: ", "").Replace("\"", "");
+            string _outputOcclusionAmount = _valueFileLines[24].Replace("occlusion_amount: ", "").Replace("\"", "");
+
+            string _outputIsEnabled = _valueFileLines[27].Replace("isEnabled: ", "").Replace("\"", "");
+            string _outputWeapon = _valueFileLines[28].Replace("weapon: ", "").Replace("\"", "");
+            #endregion
+            #region References
+
+            Texture2D _skinProfilePicture = new Texture2D(2, 2);
             if (File.Exists(_outputSkinProfilePicturePath))
             {
-                
                 _skinProfilePicture.LoadImage(File.ReadAllBytes(_outputSkinProfilePicturePath), false);
                 _skinProfilePicture.Apply();
-                
             }
 
             Texture2D[] _skinTextures = new Texture2D[7]
@@ -77,7 +77,7 @@ namespace Skillwarz.SkinManager
                 string.Empty,
                 string.Empty
             };
-            
+
             /*
 
             EDIT: Loading all the textures at every application start isn't the best approach. As we have the path to the textures, we can only
@@ -88,16 +88,16 @@ namespace Skillwarz.SkinManager
 
             if (_LoadTextures)
             {
-                for(int i = 0; i < _outputSkinTexturePaths.Length; i++)
+                for (int i = 0; i < _outputSkinTexturePaths.Length; i++)
                 {
-                    Texture2D _texture = new Texture2D(2,2);
-                    string _path = SkinDataVariableToFolder((_outputDefaultPath + "/" + _outputSkinTexturePaths[i]).Replace("    ",""));
+                    Texture2D _texture = new Texture2D(2, 2);
+                    string _path = SkinDataVariableToFolder((_outputDefaultPath + "/" + _outputSkinTexturePaths[i]).Replace("    ", ""));
 
                     if (!File.Exists(_path))
                         continue;
 
                     _skinTexturePaths[i] = _path;
-                    
+
                     _texture.LoadImage(File.ReadAllBytes(_path), false);
                     _texture.Apply();
 
@@ -105,12 +105,12 @@ namespace Skillwarz.SkinManager
                 }
             }
 
-            for(int i = 0; i < _outputSkinTexturePaths.Length; i++)
+            for (int i = 0; i < _outputSkinTexturePaths.Length; i++)
             {
-                string _path = (_outputDefaultPath + "/" + _outputSkinTexturePaths[i]).Replace("    ","");
+                string _path = (_outputDefaultPath + "/" + _outputSkinTexturePaths[i]).Replace("    ", "");
                 _skinTexturePaths[i] = _path;
             }
-            
+
 
             Color _albedoColor = Color.white;
             //Debug.Log(_outputAlbedoColor.Split(',')[0]);
@@ -134,14 +134,16 @@ namespace Skillwarz.SkinManager
 
             bool _isEnabled = bool.Parse(_outputIsEnabled);
             WeaponType _weapon = (WeaponType)Enum.Parse(typeof(WeaponType), _outputWeapon);
-			#endregion
+            #endregion
 
             SkinDataProperties _properties = new SkinDataProperties(_albedoColor, _emissionColor, _emissionIntensity, _emissionType, _metallicAmount, _normalOutput, _heightAmount, _occlusionAmount);
             SkinData _data = new SkinData(_outputSkinName, _outputSkinDescription, _skinProfilePicture, _isEnabled, _skinTextures, _properties, _weapon);
             _data.SetTexturePaths(_skinTexturePaths);
 
-			return _data;
-		}
+            float _endTime = Time.realtimeSinceStartup;
+            Skillwarz.SkinManager.Console.Instance.SendMessage("GetSkinData: <#00ff99>" + (_endTime - _firstTime).ToString() + "</color>");
+            return _data;
+        }
 
         /// <summary>
         /// Returns a string representing a folder path using a swskin variable (e.g. ###MyDocuments###).
@@ -153,7 +155,7 @@ namespace Skillwarz.SkinManager
 
             string[] _specialFoldersInString = Enum.GetNames(typeof(System.Environment.SpecialFolder));
 
-            foreach(string _value in _specialFoldersInString)
+            foreach (string _value in _specialFoldersInString)
             {
                 if (!_output.Contains(_value))
                     continue;
@@ -170,5 +172,5 @@ namespace Skillwarz.SkinManager
 
             return _output;
         }
-	}
+    }
 }

@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -32,12 +31,13 @@ public class skinObjectGetter : MonoBehaviour
         string[] _swskinFiles = Directory.GetFiles(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments) + "/Skillwarz/MySkins/", "*.swskin", SearchOption.AllDirectories);
         SkinData[] _datas = new SkinData[_swskinFiles.Length];
 
+        float _readingTimeSinceStartup = Time.realtimeSinceStartup;
         for (int i = 0; i < _swskinFiles.Length; i++)
         {
-
             _datas[i] = SkinDataInterpreter.GetSkinData(File.ReadAllText(_swskinFiles[i]));
-
         }
+        float _readingTimeSinceStartupEnd = Time.realtimeSinceStartup;
+        Console.Instance.SendMessage("Reading Skin Data Time: <#00ff99>" + (_readingTimeSinceStartupEnd - _readingTimeSinceStartup).ToString() + "</color>");
 
         skinObject[] _skinObjects = skinObjectGenerator.main.GenerateSkinObjects(_datas);
 

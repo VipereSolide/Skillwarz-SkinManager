@@ -21,11 +21,6 @@ public class skinObjectGenerator : MonoBehaviour
         main = this;
     }
 
-    void Start()
-    {
-        //GenerateSkinObjects(skinDatas1);
-    }
-
     /// <summary> Instantiates skin objects for an array of SkinData. </summary>
     /// <param name="skinDatas"> The SkinData array used to create all the skin objects. </param>
     public skinObject[] GenerateSkinObjects(SkinData[] skinDatas)

@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 using Michsky.UI.ModernUIPack;
+using System.Collections.Generic;
 
 public class underlineObject : MonoBehaviour
 {
@@ -19,12 +21,22 @@ public class underlineObject : MonoBehaviour
         this.target = _target;
         this.speed = _speed;
 
+        StartCoroutine(Fade());
+
         m_Image.EffectGradient = _targetColor;
     }
 
-    private void Update()
+    private IEnumerator Fade()
     {
-        if(target != null)
-            transform.position = Vector3.SmoothDamp(transform.position, target.position, ref currentUnderlineObjectVelocity, speed);
+        float startTime = Time.time;
+        Vector3 _oldPosition = transform.position;
+
+        while (Time.time < startTime + speed)
+        {
+            transform.position = Vector3.Lerp(_oldPosition, target.position, (Time.time - startTime) / speed);
+            yield return null;
+        }
+
+        transform.position = target.position;
     }
 }

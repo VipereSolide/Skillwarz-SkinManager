@@ -1,5 +1,6 @@
 using Michsky.UI.ModernUIPack;
 using UnityEngine;
+using Skillwarz.SkinManager;
 
 public class ResolutionDropdown : MonoBehaviour
 {

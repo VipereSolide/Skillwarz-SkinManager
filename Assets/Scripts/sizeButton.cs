@@ -6,8 +6,8 @@ using UnityEngine.EventSystems;
 
 public class sizeButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    [SerializeField] private Vector3 m_HighlightedScale = new Vector3(1.1f,1.1f,1.1f);
-    [SerializeField] private Vector3 m_NormalScale = new Vector3(1f,1f,1f);
+    [SerializeField] private Vector3 m_HighlightedScale = new Vector3(1.1f, 1.1f, 1.1f);
+    [SerializeField] private Vector3 m_NormalScale = new Vector3(1f, 1f, 1f);
     [SerializeField] private float m_HighlightSpeed = 0.2f;
 
     private bool m_IsHighlighted = false;
@@ -16,22 +16,27 @@ public class sizeButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public void OnPointerEnter(PointerEventData data)
     {
         m_IsHighlighted = true;
+        StartCoroutine(Fade(true));
     }
 
     public void OnPointerExit(PointerEventData data)
     {
         m_IsHighlighted = false;
+        StartCoroutine(Fade(false));
     }
 
-    private void Update()
+    private IEnumerator Fade(bool _Value)
     {
-        if (m_IsHighlighted)
+        float startTime = Time.time;
+        Vector3 _oldScale = transform.localScale;
+        Vector3 _finalValue = (_Value) ? m_HighlightedScale : m_NormalScale;
+
+        while (Time.time < startTime + m_HighlightSpeed)
         {
-            transform.localScale = Vector3.SmoothDamp(transform.localScale, m_HighlightedScale, ref m_ScaleVelocity, m_HighlightSpeed);
+            transform.localScale = Vector3.Lerp(_oldScale, _finalValue, (Time.time - startTime) / m_HighlightSpeed);
+            yield return null;
         }
-        else
-        {
-            transform.localScale = Vector3.SmoothDamp(transform.localScale, m_NormalScale, ref m_ScaleVelocity, m_HighlightSpeed);
-        }
+
+        transform.localScale = _finalValue;
     }
 }
