@@ -14,6 +14,7 @@ public class settingsSaver : MonoBehaviour
     [SerializeField] private framerateLocker m_FramerateLocker;
     [SerializeField] private CustomDropdown m_ResolutionCustomDropdown;
     [SerializeField] private ResolutionDropdown m_ResolutionDropdown;
+    [SerializeField] private CustomDropdown m_gridCellSize;
 
     private void Awake()
     {
@@ -34,6 +35,7 @@ public class settingsSaver : MonoBehaviour
     {
         PlayerPrefs.SetInt(nameof(m_FramerateLocker), m_FramerateLocker.LockedFPS);
         PlayerPrefs.SetInt(nameof(m_ResolutionCustomDropdown), m_ResolutionCustomDropdown.selectedItemIndex);
+        PlayerPrefs.SetInt(nameof(m_gridCellSize), m_gridCellSize.selectedItemIndex);
 
         SaveActiveSkins();
     }
@@ -45,6 +47,11 @@ public class settingsSaver : MonoBehaviour
         // Load resolution.
         m_ResolutionCustomDropdown.selectedItemIndex = PlayerPrefs.GetInt(nameof(m_ResolutionCustomDropdown));
         m_ResolutionDropdown.UpdateResolution();
+
+        // Load grid size
+        m_gridCellSize.selectedItemIndex = PlayerPrefs.GetInt(nameof(m_gridCellSize));
+        m_gridCellSize.dropdownItems[m_gridCellSize.selectedItemIndex].OnItemSelection.Invoke();
+        m_gridCellSize.SetupDropdown();
     }
 
     public void SaveActiveSkins()
