@@ -19,6 +19,7 @@ namespace Skillwarz.SkinManager
 
         [Header("Global References")]
         [SerializeField] private TMP_Text m_consoleOutputText;
+        [SerializeField] private TMP_Text m_fpsText;
 
         #region Default Methods
 
@@ -67,6 +68,9 @@ namespace Skillwarz.SkinManager
         {
             m_isActive = !m_isActive;
 
+            if (m_isActive)
+                UpdateFPS();
+
             UpdateActivity();
         }
         #endregion
@@ -78,6 +82,16 @@ namespace Skillwarz.SkinManager
         public new void SendMessage(string _MessageContent)
         {
             m_consoleOutputText.text += _MessageContent + "\n";
+        }
+
+        #endregion
+        #region Private Methods
+
+        private void UpdateFPS()
+        {
+            int _fps = (int)(1f / Time.unscaledDeltaTime);
+
+            m_fpsText.text = _fps.ToString() + "FPS";
         }
 
         #endregion

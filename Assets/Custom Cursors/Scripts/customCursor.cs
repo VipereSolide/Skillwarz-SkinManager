@@ -5,10 +5,13 @@ public class customCursor : MonoBehaviour
 {
 
     [SerializeField]
-    private bool isActive = true;
+    private GameObject m_cursorContainer;
 
     [SerializeField]
-    private customCursorObject[] cursorSprites;    
+    private bool isActive = false;
+
+    [SerializeField]
+    private customCursorObject[] cursorSprites;
 
     public bool activeSelf { get { return isActive; } }
 
@@ -27,12 +30,13 @@ public class customCursor : MonoBehaviour
     void Start()
     {
         SetCursor(0);
+        UpdateCursorState();
     }
 
     void Update()
     {
         Cursor.visible = !isActive;
-        
+
         if (isActive)
         {
             transform.position = Input.mousePosition;
@@ -50,22 +54,36 @@ public class customCursor : MonoBehaviour
         if (i > cursorSprites.Length - 1)
             i = cursorSprites.Length - 1;
 
-        foreach(customCursorObject _cursor in cursorSprites)
+        foreach (customCursorObject _cursor in cursorSprites)
         {
-            _cursor.SetActive( (_cursor == cursorSprites[i]) );
+            _cursor.SetActive((_cursor == cursorSprites[i]));
         }
 
         currentCursor = i;
     }
 
-    /// <summary>
-    /// Actives or disable the cursor (= isNormalCursor || isCustomCursor).
-    /// </summary>
-    public void SetActive(bool value)
+    public void ToggleActivity()
     {
-        isActive = value;
+        isActive = !isActive;
 
-        if (m_CanvasGroup != null)
-            m_CanvasGroup.alpha = (value) ? 1 : 0;
+        UpdateCursorState();
+    }
+
+    public void SetActivity(bool _Value)
+    {
+        isActive = _Value;
+
+        UpdateCursorState();
+    }
+
+    public void UpdateCursorState()
+    {
+        foreach (customCursorObject _cursor in cursorSprites)
+        {
+            if (isActive)
+                _cursor.SetActive((_cursor == cursorSprites[currentCursor]));
+            else
+                _cursor.SetActive(false);
+        }
     }
 }

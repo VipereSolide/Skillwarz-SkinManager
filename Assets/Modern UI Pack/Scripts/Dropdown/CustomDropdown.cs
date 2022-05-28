@@ -276,19 +276,19 @@ namespace Michsky.UI.ModernUIPack
             if (enableTrigger == true && isOn == false)
             {
                 triggerObject.SetActive(false);
-                triggerButton.interactable = true;
+                //triggerButton.interactable = true;
             }
 
             else if (enableTrigger == true && isOn == true)
             {
                 triggerObject.SetActive(true);
-                triggerButton.interactable = false;
+                //triggerButton.interactable = false;
             }
 
             if (enableTrigger == true && outOnPointerExit == true)
             {
                 triggerObject.SetActive(false);
-                triggerButton.interactable = true;
+                //triggerButton.interactable = true;
             }
         }
 

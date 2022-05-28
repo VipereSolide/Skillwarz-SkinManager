@@ -15,6 +15,8 @@ public class settingsSaver : MonoBehaviour
     [SerializeField] private CustomDropdown m_ResolutionCustomDropdown;
     [SerializeField] private ResolutionDropdown m_ResolutionDropdown;
     [SerializeField] private CustomDropdown m_gridCellSize;
+    [SerializeField] private CustomDropdown m_customCursorDropdown;
+    [SerializeField] private customCursor m_customCursor;
 
     private void Awake()
     {
@@ -36,6 +38,7 @@ public class settingsSaver : MonoBehaviour
         PlayerPrefs.SetInt(nameof(m_FramerateLocker), m_FramerateLocker.LockedFPS);
         PlayerPrefs.SetInt(nameof(m_ResolutionCustomDropdown), m_ResolutionCustomDropdown.selectedItemIndex);
         PlayerPrefs.SetInt(nameof(m_gridCellSize), m_gridCellSize.selectedItemIndex);
+        PlayerPrefs.SetInt(nameof(m_customCursorDropdown), m_customCursorDropdown.selectedItemIndex);
 
         SaveActiveSkins();
     }
@@ -43,10 +46,16 @@ public class settingsSaver : MonoBehaviour
     private void LoadSettings()
     {
         m_FramerateLocker.SetLockedFPS(PlayerPrefs.GetInt(nameof(m_FramerateLocker)));
-        
+
         // Load resolution.
         m_ResolutionCustomDropdown.selectedItemIndex = PlayerPrefs.GetInt(nameof(m_ResolutionCustomDropdown));
         m_ResolutionDropdown.UpdateResolution();
+        m_ResolutionCustomDropdown.SetupDropdown();
+
+        // Load Cursor
+        m_customCursorDropdown.selectedItemIndex = PlayerPrefs.GetInt(nameof(m_customCursorDropdown));
+        m_customCursor.SetActivity((m_customCursorDropdown.selectedItemIndex == 0));
+        m_customCursorDropdown.SetupDropdown();
 
         // Load grid size
         m_gridCellSize.selectedItemIndex = PlayerPrefs.GetInt(nameof(m_gridCellSize));
@@ -60,11 +69,11 @@ public class settingsSaver : MonoBehaviour
         skinObject[] _activeSkins = skinManager.main.ActiveSkins;
         string _activeSkinsInString = "";
 
-        foreach(skinObject _obj in _activeSkins)
+        foreach (skinObject _obj in _activeSkins)
         {
-            if(_obj == null)
+            if (_obj == null)
                 continue;
-            
+
             _activeSkinsInString += _obj.transform.name + "###";
         }
 
@@ -74,7 +83,7 @@ public class settingsSaver : MonoBehaviour
     public void LoadActiveSkins()
     {
         // Loads the current enabled skins.
-        string[] _activeSkinsInString = PlayerPrefs.GetString("ActiveSkins").Split(new []{"###"}, StringSplitOptions.None);
+        string[] _activeSkinsInString = PlayerPrefs.GetString("ActiveSkins").Split(new[] { "###" }, StringSplitOptions.None);
         skinManager.main.SetActiveSkins(_activeSkinsInString);
     }
 }

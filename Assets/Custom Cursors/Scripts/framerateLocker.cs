@@ -9,7 +9,7 @@ public class framerateLocker : MonoBehaviour
     [SerializeField] private sliderOption m_framerateSlider;
     [SerializeField] private TMP_Text m_sliderText;
     [SerializeField] private int m_lockedFPS = 60;
-    [SerializeField] private int[] m_lockedFpsLevels = new int[5]{30,60,120,144,200};
+    [SerializeField] private int[] m_lockedFpsLevels = new int[5] { 30, 60, 120, 144, 200 };
 
     public int LockedFPS { get { return m_lockedFPS; } }
 

@@ -23,21 +23,13 @@ public class customCursorObject : MonoBehaviour
 
     void Update()
     {
-        if(m_LerpElement != null) m_LerpElement.transform.position = Vector3.Lerp(m_LerpElement.transform.position, transform.position, Time.deltaTime * m_MoveSpeed);
+        if (m_LerpElement != null)
+        {
+            m_LerpElement.transform.position = Vector3.Lerp(m_LerpElement.transform.position, transform.position, Time.deltaTime * m_MoveSpeed);
+        }
 
-        transform.localScale = Vector3.SmoothDamp(
-            transform.localScale,
-            Vector3.one * ((activeSelf) ? 1 : 0),
-            ref localScaleVelocity,
-            activeSwapTime
-        );
-
-        m_CanvasGroup.alpha = Mathf.SmoothDamp(
-            m_CanvasGroup.alpha,
-            (activeSelf) ? 1 : 0,
-            ref canvasGroupVelocity,
-            activeSwapTime
-        );
+        transform.localScale = Vector3.SmoothDamp(transform.localScale, Vector3.one * ((activeSelf) ? 1 : 0), ref localScaleVelocity, activeSwapTime);
+        m_CanvasGroup.alpha = Mathf.SmoothDamp(m_CanvasGroup.alpha, (activeSelf) ? 1 : 0, ref canvasGroupVelocity, activeSwapTime);
     }
 
     public void SetActive(bool value)
@@ -46,5 +38,10 @@ public class customCursorObject : MonoBehaviour
             return;
 
         activeSelf = value;
+
+        if (m_LerpElement != null)
+        {
+            m_LerpElement.gameObject.SetActive(activeSelf);
+        }
     }
 }
